@@ -1,0 +1,113 @@
+USE Northwind_star 
+GO 
+IF (SELECT object_id('dbo.customer_dim')) > 0
+   DROP TABLE dbo.customer_dim
+CREATE TABLE dbo.customer_dim
+	(
+	CustomerKey int IDENTITY (1,1) NOT NULL,
+	CustomerID nvarchar(50)  NOT NULL,
+	CompanyName nvarchar(100)  NOT NULL,
+	ContactName nvarchar(100)  default NULL,
+	ContactTitle nvarchar(100)  default NULL,
+	Address nvarchar(256)  default NULL,
+	City nvarchar(100)  default NULL,
+	Region nvarchar(100)  default NULL,
+	PostalCode nvarchar(100)  default NULL,
+	Country nvarchar(100)  collate utf8_turkish_ci default NULL,
+	Phone nvarchar(50)  default NULL,
+	Fax nvarchar(50)  default NULL,
+	)
+
+IF (SELECT object_id('dbo.product_dim')) > 0
+   DROP TABLE dbo.product_dim
+CREATE TABLE product_dim
+	(
+	ProductKey int IDENTITY (1,1) NOT NULL,
+	ProductID int NOT NULL,
+	ProductName nvarchar(100)  NOT NULL,
+	SupplierName nvarchar(100)  NOT NULL,
+	CategoryName nvarchar(100)  NOT NULL,
+	ListUnitPrice double default NULL
+	)
+
+IF (SELECT object_id('dbo.employee_dim')) > 0
+   DROP TABLE dbo.employee_dim
+CREATE TABLE dbo.employee_dim
+	(
+	EmployeeKey	int IDENTITY (1,1) NOT NULL,
+	EmployeeID	int NOT NULL,
+	EmployeeName	nvarchar(100)  NOT NULL,
+	HireDate	datetime default NULL,
+	)
+ 
+	
+IF (SELECT object_id('dbo.product_dim')) > 0
+   DROP TABLE dbo.product_dim
+CREATE TABLE dbo.product_dim
+	(
+	ProductKey	int IDENTITY (1,1) NOT NULL,
+	ProductID	int NOT NULL,
+	ProductName	nvarchar(100)  NOT NULL,
+	SupplierName	nvarchar(100)  NOT NULL,
+	CategoryName	nvarchar(100)  NOT NULL,
+	ListUnitPrice double default NULL
+	)
+
+
+IF (SELECT object_id('dbo.shiper_dim')) > 0
+   DROP TABLE dbo.shiper_dim
+CREATE TABLE dbo.shiper_dim
+	(
+	ProductKey	int IDENTITY (1,1) NOT NULL,
+	ProductID	int NOT NULL,
+	ProductName	nvarchar(100)  NOT NULL,
+	SupplierName	nvarchar(100)  NOT NULL,
+	CategoryName	nvarchar(100)  NOT NULL,
+	ListUnitPrice double default NULL
+	)
+
+
+IF (SELECT object_id('dbo.time_dim')) > 0
+   DROP TABLE dbo.time_dim
+CREATE TABLE dbo.time_dim
+	(
+	  TimeKey int IDENTITY (1,1) NOT NULL,
+  TheDate datetime NOT NULL,
+  DayOfWeek nvarchar(30)   NOT NULL,
+  Month int NOT NULL,
+  Year int NOT NULL,
+  Quarter int NOT NULL,
+  DayOfYear int NOT NULL,
+  Holiday nvarchar(1)   default NULL,
+  Weekend nvarchar(1)   default NULL,
+  YearMonth nvarchar(61)   default NULL,
+  WeekOfYear int NOT NULL,
+	)
+
+
+
+
+USE Northwind_star 
+GO 
+ALTER TABLE dbo.Customer_Dim WITH NOCHECK ADD
+	CONSTRAINT PK_Customer_Dim
+		PRIMARY KEY NONCLUSTERED(CustomerKey)
+
+ALTER TABLE dbo.Product_Dim WITH NOCHECK ADD
+	CONSTRAINT PK_Product_Dim
+		PRIMARY KEY NONCLUSTERED(ProductKey)
+
+ALTER TABLE dbo.Time_Dim WITH NOCHECK ADD
+	CONSTRAINT PK_Time_Dim
+		PRIMARY KEY NONCLUSTERED(TimeKey)
+
+ALTER TABLE dbo.Shiper_Dim WITH NOCHECK ADD
+	CONSTRAINT PK_Shiper_Dim
+		PRIMARY KEY NONCLUSTERED(ShiperKey)
+
+ALTER TABLE dbo.employee_dim WITH NOCHECK ADD
+	CONSTRAINT PK_employee_dim
+		PRIMARY KEY NONCLUSTERED(EmployeeKey)
+
+
+GO
