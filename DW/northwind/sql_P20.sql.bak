@@ -1,0 +1,5 @@
+SELECT     SUM(dbo.[Order Details].UnitPrice) AS LUnit, SUM(dbo.[Order Details].Discount) AS LDiscount, SUM(dbo.[Order Details].Quantity) AS LQuantity, 
+                      dbo.Orders.OrderDate
+FROM         dbo.[Order Details] INNER JOIN
+                      dbo.Orders ON dbo.[Order Details].OrderID = dbo.Orders.OrderID
+GROUP BY dbo.Orders.OrderDate
