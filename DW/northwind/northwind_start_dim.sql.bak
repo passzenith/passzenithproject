@@ -1,0 +1,91 @@
+USE Northwind_star
+GO 
+IF (SELECT object_id('dbo.CustomerDim')) > 0
+   DROP TABLE dbo.CustomerDim
+CREATE TABLE dbo.CustomerDim
+	(
+	CustomerKey	int IDENTITY (1,1) NOT NULL,
+	CustoMerID	nchar(5) NOT NULL,
+	CompanyName nvarchar(40) NOT NULL,
+	ContactName nvarchar(30) ,
+	ContactTitle nvarchar(30) ,
+	CustomerAddress nvarchar(60) ,
+	City nvarchar(15) ,
+	Region nvarchar(15) ,
+	PostalCode nvarchar(10) ,
+	Country nvarchar(15) ,
+	Phone nvarchar(24) ,
+	Fax nvarchar(24) 
+	)
+
+IF (SELECT object_id('dbo.ProductDim')) > 0
+   DROP TABLE dbo.ProductDim
+CREATE TABLE dbo.ProductDim
+	(
+	ProductKey	int IDENTITY (1,1) NOT NULL,
+	ProductID	int NOT NULL,
+	ProductName	nvarchar(40) NOT NULL,
+	SupplierName	nvarchar(40) NOT NULL,
+	CategoryName nvarchar(15) NOT NULL,
+	ListUnitPrice money NOT NULL
+	)
+
+IF (SELECT object_id('dbo.EmployeeDim')) > 0
+   DROP TABLE dbo.EmployeeDim
+CREATE TABLE dbo.EmployeeDim
+	(
+	EmployeeKey	int IDENTITY (1,1) NOT NULL,
+	EmployeeID	int NOT NULL,
+	EmployeeName	nvarchar(40) NOT NULL,
+	Hiredate	datetime NOT NULL,
+	)	
+
+IF (SELECT object_id('dbo.ShipperDim')) > 0
+   DROP TABLE dbo.ShipperDim
+CREATE TABLE dbo.ShipperDim
+	(
+	ShipperKey	int IDENTITY (1,1) NOT NULL,
+	ShipperID	int NOT NULL,
+	ShipperName	nvarchar(40) NOT NULL,
+	)
+	
+IF (SELECT object_id('dbo.TimeDim')) > 0
+   DROP TABLE dbo.TimeDim
+CREATE TABLE dbo.TimeDim
+	(
+	TimeKey		int IDENTITY (1,1) NOT NULL,
+	TheDate	datetime NOT NULL,
+	TimeDayOfWeek	nchar(10) NOT NULL,
+	TimeMonth	int NOT NULL,
+	TimeYear	int NOT NULL,
+	TimeQuarter	int NOT NULL,
+	TimeDayOfYear	int NOT NULL,
+	Holiday	nchar(1) NOT NULL,
+	Weekend nchar(1) NOT NULL,
+	YearMonth nvarchar(100) NOT NULL,
+	WeekOfYear int NOT NULL
+	)
+ 	
+USE Northwind_star
+GO 
+ALTER TABLE dbo.CustomerDim WITH NOCHECK ADD
+	CONSTRAINT PK_CustomerDim
+		PRIMARY KEY NONCLUSTERED(CustomerKey)
+
+ALTER TABLE dbo.ProductDim WITH NOCHECK ADD
+	CONSTRAINT PK_ProductDim
+		PRIMARY KEY NONCLUSTERED(ProductKey)
+
+ALTER TABLE dbo.EmployeeDim WITH NOCHECK ADD
+	CONSTRAINT PK_EmployeeDim
+		PRIMARY KEY NONCLUSTERED(EmployeeKey)
+
+ALTER TABLE dbo.ShipperDim WITH NOCHECK ADD
+	CONSTRAINT PK_ShipperDim
+		PRIMARY KEY NONCLUSTERED(ShipperKey)		
+		
+ALTER TABLE dbo.TimeDim WITH NOCHECK ADD
+	CONSTRAINT PK_TimeDim
+		PRIMARY KEY NONCLUSTERED(TimeKey)
+
+GO
