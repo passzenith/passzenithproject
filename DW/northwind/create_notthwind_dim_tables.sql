@@ -47,7 +47,7 @@ CREATE TABLE dbo.Shiper_Dim
 	ShiperKey	int IDENTITY (1,1) NOT NULL,
 	ShiperID	int NOT NULL,
 	ProductName	nvarchar(100)  NOT NULL,
-	ShiperNam	nvarchar(100)  NOT NULL,
+	ShiperName	nvarchar(100)  NOT NULL,
 	)
 
 
@@ -55,7 +55,7 @@ IF (SELECT object_id('dbo.Time_Dim')) > 0
    DROP TABLE dbo.Time_Dim
 CREATE TABLE dbo.Time_Dim
 	(
-	  TimeKey int IDENTITY (1,1) NOT NULL,
+  TimeKey int IDENTITY (1,1) NOT NULL,
   TheDate datetime NOT NULL,
   DayOfWeek nvarchar(30)   NOT NULL,
   Month int NOT NULL,
