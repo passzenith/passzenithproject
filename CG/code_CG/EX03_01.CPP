@@ -22,7 +22,7 @@ void LineAndRectangle (void)
 	glFlush ( );     		// Process all OpenGL routines as quickly as possible.
 }
 
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	glutInit (&argc, argv);                         					// Initialize GLUT.
 	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);   	// Set display mode.
@@ -32,4 +32,5 @@ void main (int argc, char** argv)
 	init ( );                            				// Execute initialization procedure.
 	glutDisplayFunc (LineAndRectangle);       	// Send graphics to display window.
 	glutMainLoop ( );                    				// Display everything and wait.
+	return 0;
 }

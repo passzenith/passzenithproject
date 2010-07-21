@@ -23,15 +23,16 @@ void myDisplay (void)
 	glFlush ( );     		// Process all OpenGL routines as quickly as possible.
 }
 
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	glutInit (&argc, argv);                         			// Initialize GLUT.
 	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);   	// Set display mode.
 	glutInitWindowPosition (50, 100);// Set top-left display-window position.
 	glutInitWindowSize (400, 300);	// Set display-window width and height.
-	glutCreateWindow (“Display 5 Points with OpenGL Program”);// Create display window.
+	glutCreateWindow ("Display 5 Points with OpenGL Program");// Create display window.
 
 	init ( );					// Execute initialization procedure.
 	glutDisplayFunc (myDisplay);	// Send graphics to display window.
 	glutMainLoop ( );			// Display everything and wait.
+	return 0;
 }
