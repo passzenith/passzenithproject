@@ -9,7 +9,7 @@ void init (void)
 
 void myDisplay (void)
 {
-	GLfloat y;			
+	GLint y;			
 	GLfloat Size;		
 	glClear (GL_COLOR_BUFFER_BIT); 
 	glColor3f (0.0, 0.0, 1.0);      
@@ -18,15 +18,15 @@ void myDisplay (void)
 	{
 		glLineWidth (Size);
 		glBegin (GL_LINES);
-			glVertex2i (20, y); 			// Set line-segment geometry     
-			glVertex2i (180, y);
+		glVertex2i (20, y); 			// Set line-segment geometry     
+		glVertex2i (180, y);
 		glEnd ( );
 		Size += 1.0f;
 	}
 	glFlush ( );     
 }
 
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	glutInit (&argc, argv);                         
 	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);   
@@ -36,5 +36,6 @@ void main (int argc, char** argv)
 
 	init ( );                            
 	glutDisplayFunc (myDisplay);      
-	glutMainLoop ( );                    
+	glutMainLoop ( );      
+    return 0;              
 }

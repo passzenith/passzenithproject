@@ -49,7 +49,7 @@ void myDisplay (void)
 	glFlush ( );     
 }
 
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	glutInit (&argc, argv);                         		
 	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);   	
@@ -59,5 +59,6 @@ void main (int argc, char** argv)
 
 	init ( );					
 	glutDisplayFunc (myDisplay);		
-	glutMainLoop ( );			
+	glutMainLoop ( );	
+    return 0 ;		
 }

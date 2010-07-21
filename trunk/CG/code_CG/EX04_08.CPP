@@ -46,7 +46,7 @@ void Circle (int xc, int yc, int rad)
     else
       { 
          x++;
-         y—;
+         y-—;
        }
     if (d < 0)
       d += 2*x +1;
