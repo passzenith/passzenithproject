@@ -48,7 +48,7 @@ void specialkey (int key, int x, int y)
 	}
 }
 
-void main (int argc, char **argv)
+int main (int argc, char **argv)
 {
 	glutInit (&argc, argv);             
 	glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE);     
@@ -57,5 +57,6 @@ void main (int argc, char **argv)
 	glutCreateWindow ("Special key : F1=red, INSERT=green, HOME=blue, PgUp=yellow, left=magenta, right=cyan");         
 	glutDisplayFunc(display);           
 	glutSpecialFunc (specialkey);
-	glutMainLoop ();                    
+	glutMainLoop ();  
+    return 0;                  
 }

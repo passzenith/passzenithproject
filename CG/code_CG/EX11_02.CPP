@@ -40,7 +40,7 @@ void keyboard (unsigned char key, int x, int y)
 	}
 }
 
-void main (int argc, char **argv)
+int main (int argc, char **argv)
 {
 	glutInit (&argc, argv);             
 	glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE);     
@@ -50,4 +50,5 @@ void main (int argc, char **argv)
 	glutDisplayFunc(display);           
 	glutKeyboardFunc (keyboard);
 	glutMainLoop ();                    
+	return 0;
 }

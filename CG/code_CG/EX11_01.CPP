@@ -26,7 +26,7 @@ void spin (void)					// Spin function
  
 }
  
-void main (int argc, char **argv)
+int main (int argc, char **argv)
 {
 	glutInit (&argc, argv);             
 	glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE);     
@@ -35,5 +35,6 @@ void main (int argc, char **argv)
 	glutCreateWindow ("Callback function for Cube Animation");
 	glutDisplayFunc(display);           
 	glutIdleFunc(spin);				// Idle function            
-	glutMainLoop ();                    
+	glutMainLoop ();      
+    return 0;              
 }

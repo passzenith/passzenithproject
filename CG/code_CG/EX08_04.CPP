@@ -99,7 +99,7 @@ void display()
 
 };
 
-void main()
+int main()
 {
 	vpWidth = 600;
 	vpHeight = 600;
@@ -111,4 +111,5 @@ void main()
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutMainLoop();
+	return 0;
 }

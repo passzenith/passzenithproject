@@ -189,7 +189,7 @@ void reshape(int w, int h)
 	glTranslatef(0.0, 0.0, -400.0);
 }
 
-void main(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	glutInit(&argc, argv);		
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
@@ -200,5 +200,6 @@ void main(int argc, char* argv[])
 	glutReshapeFunc(reshape);
 	glutSpecialFunc(SpecialKey);
 	glutDisplayFunc(myDisplay);	
-	glutMainLoop();			
+	glutMainLoop();	
+    return 0;		
 }
