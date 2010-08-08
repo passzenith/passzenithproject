@@ -1,7 +1,6 @@
 -- innerjoin
 SELECT		Billing.SessionID
-FROM       
-			Billing 
+FROM		Billing 
 		INNER JOIN
 			DiagnosisCost 
 		ON 
@@ -73,3 +72,5 @@ DATEDIFF (datepart ,startdate ,enddate ) As time
 	minute		=    mi, n
 	second		=    ss, s
 	millisecond	=     ms 
+	
+--การเรียก   tablename.column
