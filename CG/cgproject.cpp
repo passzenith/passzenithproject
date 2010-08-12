@@ -12,9 +12,10 @@ int PlayerLocation[CountPlayer]; //เบอร์คนเล่น,ตำแ�
 int PlayerRank[CountPlayer]; //เบอร์คนเล่น,อันดับผู้เล่นในปัจจุบัน (เช่น คนที่ 1 ได้อันดับสาม)
 int PlayerCharacter[CountPlayer];//เบอร์คนเ่ล่น,ตัวละครที่เลือก   ไว้สำหรับมีกรณีผู้เล่นตั้งชื่อเองได้
 int PlayerTurn[CountPlayer];//เบอร์คนเล่น,ลำดับการเดิน  มาจากการทอยลูกเต๋าครั้งแรก
-int field [Width][High] ;
+int Field [Width][High] ;
 bool PlayerStop[CountPlayer];
 int event;
+int gameevnt;
 //function
 
 
@@ -49,31 +50,84 @@ int Ranking(int PlayerRank)
 return 0;
 }
 
-void MoveCharacter(void)
+void MoveCharacter()
 {
 //เปลี่ยนที่โดยการหมุนรอบตัวแล้วไปโผล่ในตำแหนงปลายทาง
 }
-
-
-void ZoomField(void)
+void FieldEvent()
 {
-//ซูมภาพ เล็ก หรือใหญ่
+	//กำหนดว่า ที่ field [x][y] มีค่า gameevent = ?
 }
 
-void ZoomField(void)
+
+
+
+void SpecialKeys( int key, int x, int y)
 {
-//หมุนดูฉาก
+
+   switch ( key )    
+	{ 				 
+        
+      	//เปลี่ยนมุมกล้อง
+       case GLUT_KEY_RIGHT:
+
+		break;
+
+		case GLUT_KEY_UP:
+
+			break;
+        
+        case GLUT_KEY_LEFT:
+
+			break;
+		
+        case GLUT_KEY_DOWN:
+
+			break;
+		
+        
+        case GLUT_KEY_PAGE_UP:
+
+			break;
+            
+       
+        case GLUT_KEY_PAGE_DOWN:
+
+			break;
+				// zoomin zoom out
+        case GLUT_KEY_F1:                          
+
+            break;
+           
+        case GLUT_KEY_F2:
+
+        break;
+		else 
+			break;
 }
+
 
 void display (void)
 {
-		switch (event)
+		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear display window.
+	
+		glEnable (GL_LINE_SMOOTH);
+		glEnable (GL_BLEND);
+		glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+     
+
+
+		glPushMatrix();
+		glutWireCube(20.0) //ตัวแทนละคร
+		
+		switch (gameevent)
 		{
-		case 1: //เดินถอยหลังไป ... ตา (random เอา)
+		case 1: //เดินถอยหลังไป ... (random เอา)
 			break;
 		case 2: //ตกหลุม  หล่น ไปด้านล่าง field [5][5]  >> field [5][4] 
 			break;
-		case 3://ปีนบันไดขึ้นข้างบนง field [5][5]  >> field [5][6] 
+		case 3://ปีนบันไดขึ้นข้างบน field [5][5]  >> field [5][6] 
 			break; 
 		case 4://หยุดเดิน 1 ตา
 			//PlayerStop[Player[?]] = false;
@@ -81,8 +135,17 @@ void display (void)
 			//ทำให้ทอยลุูกเต๋าใหม่อีกรอบ
 			break; 
 		else 
-			break;
+			// เดินปกติ
+		break;
 		}
+		
+		
+		glPopMatrix();
+        glPopMatrix();
+        glutSwapBuffers();
+        glFlush ( );   
+
+
 }
 
 
@@ -91,7 +154,14 @@ void display (void)
 
 void init(void)
 {
-
+	glEnable(GL_DEPTH_TEST);
+	glClearColor(1.0, 1.0, 1.0, 0.0 );	// Set display-window color to White
+	glColor3f(1.0, 1.0, 1.0);	
+	glMatrixMode(GL_PROJECTION);	
+	glRotatef (45.0, 0.0, 1.0, 1.0);  //Set  axis 
+    glOrtho(-50,50,-50,50,-50,50);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 	
 }
 
@@ -104,6 +174,15 @@ int main (int argc, char **argv)
 {
 				
 	glutInit (&argc, argv);
+
+	lutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowPosition (50, 50);
+	glutInitWindowSize (500, 500);
+	glutCreateWindow ("demo");
+	init ( );
+	glutDisplayFunc (display);
+	glutSpecialFunc(SpecialKeys) ;
+	glutMainLoop ( );
 	
 	return 0;
 }
