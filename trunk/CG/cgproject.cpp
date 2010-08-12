@@ -60,7 +60,7 @@ void FieldEvent()
 }
 
 
-
+/*
 
 void SpecialKeys( int key, int x, int y)//ถ้าทำเป็นเมาสบังคับไม่ได้
 {
@@ -106,7 +106,7 @@ void SpecialKeys( int key, int x, int y)//ถ้าทำเป็นเมา�
 			break;
 }
 
-
+*/
 void display (void)
 {
 		
