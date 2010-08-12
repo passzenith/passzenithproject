@@ -62,7 +62,7 @@ void FieldEvent()
 
 
 
-void SpecialKeys( int key, int x, int y)
+void SpecialKeys( int key, int x, int y)//ถ้าทำเป็นเมาสบังคับไม่ได้
 {
 
    switch ( key )    
@@ -158,7 +158,7 @@ void init(void)
 	glClearColor(1.0, 1.0, 1.0, 0.0 );	// Set display-window color to White
 	glColor3f(1.0, 1.0, 1.0);	
 	glMatrixMode(GL_PROJECTION);	
-	glRotatef (45.0, 0.0, 1.0, 1.0);  //Set  axis 
+	//glRotatef (45.0, 0.0, 1.0, 1.0);  //Set  axis 
     glOrtho(-50,50,-50,50,-50,50);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
