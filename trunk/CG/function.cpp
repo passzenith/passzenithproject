@@ -3,19 +3,19 @@
 #include <GL/glut.h>
 #include <constant.h>
 
-int PitchDice(int PlayerDice)
+int PitchDice()
 {
        // บันทึกการทอยลูกเต๋าในแต่ละตา
 return 0;
 }
 
-int Ranking(int PlayerRank)
+int Location()
 {
        // บันทึกตำแหน่งปัจจุบัน
 return 0;
 }
 
-int Ranking(int PlayerRank)
+int Ranking()
 {
        // บันทึกอันดับการเล่นที่เปลี่ยนไป
 return 0;
@@ -27,7 +27,16 @@ void MoveCharacter()
 }
 void FieldEvent()
 {
-	//กำหนดว่า ที่ field [x][y] มีค่า gameevent = ?
+	/*
+	กำหนดว่า ที่ field [Width][High]มีค่า gameevent = ?
+	 1 = เดินถอยหลังไป ... (random เอา)
+	 2 = ตกหลุม  หล่น ไปด้านล่าง field [5][5]  >> field [5][4] 
+	 3 = ปีนบันไดขึ้นข้างบน field [5][5]  >> field [5][6]
+	 4 = หยุดเดิน 1 ตา
+	 5 = เดินอีกตา 
+	 อื่นๆ เดินปกติ
+	 */
+	
 }
 
 void Event ()
