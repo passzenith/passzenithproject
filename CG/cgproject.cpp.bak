@@ -1,0 +1,103 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <GL/glut.h>
+//ตัวแปรที่กำหนดไว้  
+const int Width = 5;  //กระดานกว้างเท่าไร
+const int High = 5;  //กระดานสูงเท่าไร
+int field [Width][High];
+int DiceNumber = 0; //ค่าของลูกเต๋า
+
+int Shichi = 1; // ดิน
+int Aqua = 2; //น้ำ
+int Windy = 3;//ลม
+int Akki = 4; //ไฟ
+
+typedef struct  
+{
+	int Dice; // ทอยได้เท่าไหร่
+	int Location; // อยู่ที่ไหน
+	int Rank;//อันดับผู้เล่นในปัจจุบัน
+	int Turn; //มีลำดับการเล่นอยู่ลำดับที่ 1-4
+	bool PlayerIsStop;//ถูกส่งให้หยุดหรือไม่ถ้าไม่ก็ได้เล่น
+	char name[20]; // ชื่อ
+}Record;
+
+typedef struct  
+{
+	int player; // player อะไร
+	Record record; // มีค่าอะไรบ้าง
+}Player; // Player อะไร
+
+int event;
+//function
+void event(void)
+{
+switch (event)
+		{
+		case 1: //เดินถอยหลังไป ... ตา (random เอา)
+			break;
+		case 2: //ตกหลุม  หล่น ไปด้านล่าง field [5][5]  >> field [5][4] 
+			break;
+		case 3://ปีนบันไดขึ้นข้างบนง field [5][5]  >> field [5][6] 
+			break; 
+		case 4://หยุดเดิน 1 ตา
+			//PlayerStop[Player[?]] = false;
+		case 5://เดินอีกตา
+			//ทำให้ทอยลุูกเต๋าใหม่อีกรอบ
+			break; 
+		else 
+			break;
+		}
+}
+
+
+int ChooseCharacter(int PlayerCharacter ) 
+{
+		// บันทึกว่า  player คนไหน เลือกตัวละครอะไร 
+
+return 0;
+}
+
+int ChooseTurn(PlayerTurn)
+{
+		//บันทึกลำดับการเล่น
+return 0;
+}
+
+int PitchDice(int PlayerDice)
+{
+       // บันทึกการทอยลูกเต๋าในแต่ละตา
+return 0;
+}
+
+int Ranking(int PlayerRank)
+{
+       // บันทึกตำแหน่งปัจจุบัน
+return 0;
+}
+
+int Ranking(int PlayerRank)
+{
+       // บันทึกอันดับการเล่นที่เปลี่ยนไป
+return 0;
+}
+
+void MoveCharacter(void)
+{
+//เปลี่ยนที่โดยการหมุนรอบตัวแล้วไปโผล่ในตำแหนงปลายทาง
+}
+
+
+void ZoomField(void)
+{
+//ซูมภาพ เล็ก หรือใหญ่
+}
+
+void ZoomField(void)
+{
+//หมุนดูฉาก
+}
+void display (void)
+{
+		
+}
