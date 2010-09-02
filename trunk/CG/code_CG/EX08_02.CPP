@@ -45,7 +45,7 @@ void reshape (GLint newWidth, GLint newHeight)
 	winHeight = newHeight;
 }
 
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	glutInit (&argc, argv);
 	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
@@ -56,4 +56,5 @@ void main (int argc, char** argv)
 	glutDisplayFunc (display);
 	glutReshapeFunc (reshape);
 	glutMainLoop ( );
+	return 0;
 }
